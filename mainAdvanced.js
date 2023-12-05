@@ -152,4 +152,25 @@ console.log(add4);
 //     console.log(`The Multiplication of ${a} and ${b} is : ${mul}`);
 // };
 // multiplication(3,4);
-
+// prototype
+function displayDetails(fname,lname) {
+    this.firstName = fname;
+    this.lastName = lname;
+}
+const d1 = new displayDetails("Santosh","Mhatre");
+const d2 = new displayDetails("Ankita","Mhatre");
+// Since js is a dynamic language,we can extend the properties here
+// d1.getFullname = function () {
+//     return this.firstName + ' ' + this.lastName; 
+// }
+// console.log(d1.getFullname());
+// op is Santosh Mhatre
+// but if we try 
+// console.log(d2.getFullname());
+// we get error
+// so we use prototype such that we can use for any n number of objects
+displayDetails.prototype.getFullname = function() {
+    return this.firstName+' '+this.lastName;
+}
+console.log(d1.getFullname());
+// op is Santosh Mhatre

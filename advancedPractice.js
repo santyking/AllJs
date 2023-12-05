@@ -127,15 +127,100 @@ console.log(mul3);
 // console.log(p2.name);
 // default binding
 
-let user1 = {
-    name:"Ankita",
-    age:29
+// let user1 = {
+//     name:"Ankita",
+//     age:29
+// }
+// let user2 = {
+//     name:"Santosh",
+//     age:30
+// }
+// function dispDet(name,age) {
+//     console.log(`Hi! i am ${this.name} and i am ${this.age} years old.`);
+// }
+// dispDet.call(user2);
+
+// 5 dec 2023
+// closure
+// function outer() {
+//     let a = 10;
+//     let b = 20;
+//     function add() {
+//         a+=b;
+//         console.log(`The value of a is ${a}`);
+//     }
+//     return add;
+// }
+// let oc = outer();
+// oc();
+// oc();
+// currying
+// function area(l,b) {
+//     return l*b;
+// }
+// function CurryArea(fn) {
+//     return function(l){
+//         return function(b){
+//             return fn(l,b);
+//         }
+//     }
+// }
+// let Ca = CurryArea(area);
+// // console.log(Ca(10)(10));
+// // second method
+// let a = Ca(10);
+// let b = a(10);
+// console.log(b);
+
+// this keyword
+// implicit binding
+// let employee = {
+//     name:"Santosh",
+//     age:30,
+//     disp: function() {
+//         console.log(`Hi, I am ${this.name} and i am ${this.age}`);
+//     }
+// }
+// employee.disp();
+// exlicit binding
+// let person1 = {
+//     name:"Santosh",
+//     age:30
+// }
+// let person2 = {
+//     name:"Ankita",
+//     age:29
+// }
+// function dispPerson(name,age) {
+//     console.log(`Hi, I am ${this.name} and i am ${this.age} years old`);
+// }
+// dispPerson.call(person2);
+// new binding
+// function person(name,age) {
+//     this.name = name;
+//     this.age = age;
+// }
+// let p1 = new person("Santosh",30);
+// console.log(`Hi! i am ${p1.name} and i am ${p1.age} years old`);
+// prototype
+function displayDetails(fname,lname) {
+    this.firstName = fname;
+    this.lastName = lname;
 }
-let user2 = {
-    name:"Santosh",
-    age:30
+const d1 = new displayDetails("Santosh","Mhatre");
+const d2 = new displayDetails("Ankita","Mhatre");
+// Since js is a dynamic language,we can extend the properties here
+// d1.getFullname = function () {
+//     return this.firstName + ' ' + this.lastName; 
+// }
+// console.log(d1.getFullname());
+// op is Santosh Mhatre
+// but if we try 
+// console.log(d2.getFullname());
+// we get error
+// so we use prototype such that we can use for any n number of objects
+displayDetails.prototype.getFullname = function() {
+    return this.firstName+' '+this.lastName;
 }
-function dispDet(name,age) {
-    console.log(`Hi! i am ${this.name} and i am ${this.age} years old.`);
-}
-dispDet.call(user2);
+console.log(d1.getFullname());
+// op is Santosh Mhatre
