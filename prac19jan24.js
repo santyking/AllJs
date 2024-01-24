@@ -77,3 +77,127 @@
 // }
 // let d1 = new dispDet("Santosh",30);
 // console.log(d1.name,d1.a);
+/* 
+const person1  = {
+    name:"Santosh",
+    age : 30,
+    dispDet : function() {
+        console.log(`Hi i am ${this.name}. I am ${this.age} yo!`);
+    }
+}
+const person2 = {
+    name:"Ankita",
+    age:29,
+    dispDet: function () {
+        console.log(`Hi i am ${this.name}. I am ${this.age} yo!`);
+    }
+}
+person1.dispDet();
+person2.dispDet();
+*/
+// explicit binding
+/*
+const person1 = {
+    name:"Santosh",
+    age:30
+}
+const person2 = {
+    name:"Ankita",
+    age:29
+}
+function sayMyName(name,age) {
+    console.log(`Hi, I am ${this.name} and i am ${this.age} yo!`);
+}
+sayMyName.call(person1);
+sayMyName.call(person2);*/
+// new binding
+/*
+function sayMyName(name,age) {
+    this.name = name;
+    this.age = age;
+}
+const p1 = new sayMyName("Santosh",30);
+const p2 = new sayMyName("Ankita",29);
+console.log(`Hi, i am ${p1.name} and i am ${p1.age} yo!`);
+console.log(`Hi, i am ${p2.name} and i am ${p2.age} yo!`);
+*/
+// implicit practice
+/*
+const person1 = {
+    name: "Santosh",
+    age:30,
+    sayMyName: function() {
+        console.log(`Hi, i am ${this.name}, I am ${this.age} yo!`);
+    }
+}
+const person2 = {
+    name : "Ankita",
+    age : 29,
+    sayMyName : function () {
+        console.log(`Hi, I am ${this.name} and i am ${this.age} yo!`);
+    }
+}
+person1.sayMyName();
+person2.sayMyName();
+*/
+// explicit binding practice
+/*
+const person1  = {
+    name:"Santosh",
+    age:30
+}
+const person2 = {
+    name:"Ankita",
+    age:29
+}
+function sayMyName(name,age) {
+    console.log(`Hi, I am ${this.name} and i am ${this.age} yo!`);
+}
+sayMyName.call(person1);
+sayMyName.call(person2);*/
+// new binding
+/*
+function displayDetails(name,age) {
+    this.name = name;
+    this.age = age;
+}
+const p1 = new displayDetails("Santosh",30);
+const p2 = new displayDetails("Ankita",29);
+
+console.log(`Hi, i am ${p1.name} and i am ${p1.age} yo!`);
+console.log(`Hi, i am ${p2.name} and i am ${p2.age} yo!`);*/
+// prototype
+// function sayMyName(name,age) {
+//     this.name = name;
+//     this.age = age;
+// }
+// const p1 = new sayMyName("Santosh",30);
+// const p2 = new sayMyName("Ankita",29);
+// // console.log(`Hi!,i am ${p1.name} and i am ${p1.age} yo!`);
+// p1.displayName = function() {
+//     return this.name+' and i am '+this.age+' yo!';
+// }
+// console.log(p1.displayName());
+
+// function displayDetails(name,age) {
+//     this.username = name;
+//     this.userage = age;
+// }
+// const p1 = new displayDetails("Santosh",30);
+// const p2 = new displayDetails("Ankita",29);
+// p1.introduce = function () {
+//     return 'Hi, i am '+this.username+'. I am '+this.userage+'yo!'
+// }
+// console.log(p1.introduce());
+
+function user(first,last) {
+    this.fname = first;
+    this.lname = last;
+}
+const u1 = new user("Santosh","Mhatre");
+const u2 = new user("Ankita","Mhatre");
+
+user.prototype.displayName = function () {
+    return this.fname+' '+this.lname;
+}
+console.log(u1.displayName());
