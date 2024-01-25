@@ -190,14 +190,60 @@ console.log(`Hi, i am ${p2.name} and i am ${p2.age} yo!`);*/
 // }
 // console.log(p1.introduce());
 
-function user(first,last) {
-    this.fname = first;
-    this.lname = last;
-}
-const u1 = new user("Santosh","Mhatre");
-const u2 = new user("Ankita","Mhatre");
+// function user(first,last) {
+//     this.fname = first;
+//     this.lname = last;
+// }
+// const u1 = new user("Santosh","Mhatre");
+// const u2 = new user("Ankita","Mhatre");
 
-user.prototype.displayName = function () {
-    return this.fname+' '+this.lname;
+// user.prototype.displayName = function () {
+//     return this.fname+' '+this.lname;
+// }
+// console.log(u1.displayName());
+
+// practice as on 25 Jan 2024
+// function sayMyName(name,age) {
+//     this.fname = name;
+//     this.age  = age;
+// }
+// const user1 = new sayMyName("Santosh",30);
+// const user2 = new sayMyName("Ankita",29);
+
+// user1.introduce = function () {
+//     return 'Hi, i am '+this.fname+'. I am '+this.age+' yo!'
+// }
+
+// console.log(user2.introduce());
+
+// function dispDet(first,last) {
+//     this.fname = first;
+//     this.lname = last;
+// }
+// const u1 = new dispDet("Santosh","Mhatre");
+// const u2 = new dispDet("Ankita","Mhatre");
+// dispDet.prototype.displayName = function () {
+//     return 'Hi, i am '+this.fname+' '+this.lname+'.'
+// }
+
+// console.log(u1.displayName());
+// console.log(u2.displayName());
+
+function person(fname,lname) {
+    this.firstName = fname;
+    this.lastName = lname;
 }
-console.log(u1.displayName());
+person.prototype.getFullName = function () {
+    return this.firstName+ ' '+ this.lastName;
+}
+function superhero(fname,lname) {
+    person.call(this,fname,lname)
+    this.isSuperHero = true;
+}
+superhero.prototype.fightCrime = function () {
+    console.log('Fighting Crime');
+}
+superhero.prototype = Object.create(person.prototype);
+const batman  = new superhero('Iron','Man');
+superhero.prototype.constructor = superhero;
+console.log(batman.getFullName());

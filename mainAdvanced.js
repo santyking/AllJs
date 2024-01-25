@@ -163,3 +163,22 @@ console.log(d1.getFullname());
 // console.log(d1.getFullname());
 // Op: Santosh Mhatre
 */
+// prototype inheritance
+function person(fname,lname) {
+    this.firstName = fname;
+    this.lastName = lname;
+}
+person.prototype.getFullName = function () {
+    return this.firstName+ ' '+ this.lastName;
+}
+function superhero(fname,lname) {
+    person.call(this,fname,lname)
+    this.isSuperHero = true;
+}
+superhero.prototype.fightCrime = function () {
+    console.log('Fighting Crime');
+}
+superhero.prototype = Object.create(person.prototype);
+const batman  = new superhero('Iron','Man');
+superhero.prototype.constructor = superhero;
+console.log(batman.getFullName());
