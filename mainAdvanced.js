@@ -164,21 +164,64 @@ console.log(d1.getFullname());
 // Op: Santosh Mhatre
 */
 // prototype inheritance
-function person(fname,lname) {
-    this.firstName = fname;
-    this.lastName = lname;
+// function person(fname,lname) {
+//     this.firstName = fname;
+//     this.lastName = lname;
+// }
+// person.prototype.getFullName = function () {
+//     return this.firstName+ ' '+ this.lastName;
+// }
+// function superhero(fname,lname) {
+//     person.call(this,fname,lname)
+//     this.isSuperHero = true;
+// }
+// superhero.prototype.fightCrime = function () {
+//     console.log('Fighting Crime');
+// }
+// superhero.prototype = Object.create(person.prototype);
+// const batman  = new superhero('Iron','Man');
+// superhero.prototype.constructor = superhero;
+// console.log(batman.getFullName());
+
+// Classes in Javascript
+// this is how we write classes instead of functions which we did earlier
+/*
+class Person {
+    constructor(fname,lname){
+        this.firstName = fname;
+        this.lastName = lname;
+    }
+    introduce(){
+        return 'Hi, i am '+this.firstName+' '+this.lastName+'.'
+    }
 }
-person.prototype.getFullName = function () {
-    return this.firstName+ ' '+ this.lastName;
+const p1 = new Person("Santosh","Mhatre");
+const p2 = new Person("Ankita","Mhatre");
+console.log(p1.introduce());
+console.log(p2.introduce());
+*/
+// now we will learn on how to do inheritance using classes instead of prototypes
+
+class Person{
+    constructor(fname,lname){
+        this.firstName = fname;
+        this.lastName = lname;
+    }
+    sayMyName(){
+        return this.firstName+' '+this.lastName;
+    }
 }
-function superhero(fname,lname) {
-    person.call(this,fname,lname)
-    this.isSuperHero = true;
+const p1 = new Person("Santosh","Mhatre");
+console.log(p1.sayMyName());
+
+class superhero extends Person{
+    constructor(fname,lname){
+        super(fname,lname);
+        this.isSuperHero = true;
+    }
+    fightCrime(){
+        console.log("Fighting Crime");
+    }
 }
-superhero.prototype.fightCrime = function () {
-    console.log('Fighting Crime');
-}
-superhero.prototype = Object.create(person.prototype);
-const batman  = new superhero('Iron','Man');
-superhero.prototype.constructor = superhero;
-console.log(batman.getFullName());
+const batman = new superhero("Bruce","Wayne");
+console.log(batman.sayMyName());
