@@ -201,7 +201,7 @@ console.log(p1.introduce());
 console.log(p2.introduce());
 */
 // now we will learn on how to do inheritance using classes instead of prototypes
-
+/*
 class Person{
     constructor(fname,lname){
         this.firstName = fname;
@@ -225,3 +225,27 @@ class superhero extends Person{
 }
 const batman = new superhero("Bruce","Wayne");
 console.log(batman.sayMyName());
+*/
+// iterators in javascipt
+const person  = {
+    [Symbol.iterator]:function () {
+        let step=0;
+        const iterator = {
+            next: function () {
+                step++;
+                if (step===1) {
+                    return {value : 'hello',done:false}
+                }
+                else if(step===2){
+                    return {value : 'world',done:false}
+                }
+                return {value:undefined,done:true}
+            }
+        };
+        return iterator;
+    }
+}
+
+for (const word of obj) {
+    console.log(word);
+}
