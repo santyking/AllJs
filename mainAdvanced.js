@@ -227,6 +227,8 @@ const batman = new superhero("Bruce","Wayne");
 console.log(batman.sayMyName());
 */
 // iterators in javascipt
+// For loop syntax is diffrent for iterating through a loop vs iterating for an Array. We need a unified method to iterate in javascript. Hence from 2015, there is a new syntax for of in which syntax is the same for both string and Array. As of now only these 2 are supported. But when it comes to other data structures , for of is not compatible. so to make it compatible with for of loop, we will use iterators for which syntax is give below
+/*
 const person  = {
     [Symbol.iterator]:function () {
         let step=0;
@@ -249,3 +251,4 @@ const person  = {
 for (const word of obj) {
     console.log(word);
 }
+*/
