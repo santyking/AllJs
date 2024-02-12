@@ -252,3 +252,25 @@ for (const word of obj) {
     console.log(word);
 }
 */
+
+// the above syntax is too Hard, we need to take care of multiple things, so better this can be minimized using generators. 
+
+// Generators in Javascript
+
+// below is the basic syntax of function
+// function normalFunction() {
+//     console.log("Hello");
+//     console.log("World");
+// }
+// once a function is called,it continous the execution until the function code is finished execution. we cannot iterate here
+// generator function can stop midway and can continue execution from where it stopped 
+// this is done using yeild keyword
+function* generatorFunction() {
+    yield 'Hello';
+    yield 'World';
+}
+// here the generator function returns generator object. now generator object is an iterator
+const generatorObject = generatorFunction();
+for (const word of generatorObject) {
+    console.log(word);
+}
