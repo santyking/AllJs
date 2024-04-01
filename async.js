@@ -50,3 +50,14 @@ function greet(name) {
  // here higher order function
 setTimeout(greet,2000,"Santosh");
 */
+// promises
+const promise = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('Bringging tacos');
+    },5000);
+});
+const onSuccess = ()=> {
+    console.log("successful");
+    console.log("Setup table");
+}
+promise.then(onSuccess);
