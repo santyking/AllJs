@@ -91,6 +91,7 @@ calculator.then((sum)=>{
 })
 */
 // Async Await
+/*
 let getName = async () => {
   let name = "Santosh";
   return name;
@@ -98,3 +99,26 @@ let getName = async () => {
 getName().then((name) => {
   console.log(name);
 });
+*/
+/*
+let getName = async () => {
+  let name = await "Santosh";
+  console.log(name);
+};
+getName();
+*/
+let calculator = new Promise((resolve, reject) => {
+  let num1 = 10;
+  let num2 = 5;
+  let sum = num1 + num2;
+  if (sum >= 0) {
+    resolve(sum);
+  } else {
+    reject();
+  }
+});
+
+let DisplayResult = async () => {
+  let data = await calculator();
+  console.log(data);
+};
