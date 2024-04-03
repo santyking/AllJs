@@ -71,6 +71,7 @@ calculator(5,10)
 .then(DisplayResult)
 .catch(errorOccured);
 */
+/*
 let calculator = new Promise((resolve, reject) => {
     let num1 = 10;
     let num2 = 5;
@@ -88,3 +89,12 @@ calculator.then((sum)=>{
 .catch(()=>{
     console.log("incorrect output");
 })
+*/
+// Async Await
+let getName = async () => {
+  let name = "Santosh";
+  return name;
+};
+getName().then((name) => {
+  console.log(name);
+});

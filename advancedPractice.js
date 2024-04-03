@@ -203,6 +203,7 @@ console.log(mul3);
 // let p1 = new person("Santosh",30);
 // console.log(`Hi! i am ${p1.name} and i am ${p1.age} years old`);
 // prototype
+/*
 function displayDetails(fname,lname) {
     this.firstName = fname;
     this.lastName = lname;
